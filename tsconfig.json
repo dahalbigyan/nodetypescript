@@ -13,5 +13,11 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ], 
+  /**
+      this is coming from routing-controllers
+      source: https://github.com/typestack/routing-controllers#installation
+  **/
+  "emitDecoratorMetadata": true,
+  "experimentalDecorators": true
 }
