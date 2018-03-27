@@ -6,12 +6,10 @@ import {Category} from "../model/Category";
 @Service()
 @JsonController()
 export class CategoryController{
-    private categoryDummyData; 
-    constructor(categoryDummyData: CategoryDummyData){
-        this.categoryDummyData = CategoryDummyData; 
+     
+    constructor(private categoryDummyData: CategoryDummyData){
     }; 
 
-    // this.categoryDummyData = CategoryDummyData;
     
     @Get("/categories")
     all(): Promise<Category[]>{
