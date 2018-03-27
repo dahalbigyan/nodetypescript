@@ -1,41 +1,16 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
-
+import "reflect-metadata"; // this shim is required
+import {createExpressServer} from "routing-controllers";
+import {UserController} from "./UserController";
 class App {
-
   constructor() {
-    this.app = express();
-    this.configureExpress();
-    this.mountRoutes();
-  }
-
-  public app: express.Application;
-
-  private configureExpress(): void {
-    this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({ extended: false }));
-  }
-
-  private mountRoutes(): void {
-    const router = express.Router();
-
-    router.get('/', (req: Request, res: Response) => {
-      res.status(200).send({
-        message: 'Hello World!'
-      })
+    this.app = createExpressServer({
+      controllers: [UserController]
     });
-
-    router.post('/', (req: Request, res: Response) => {
-      const data = req.body;
-      // query a database and save data
-      res.status(200).send(data);
-    });
-
-    this.app.use('/', router)
-
-  }
-
-}
+  }; 
+  public app: express.Application
+}; 
 
 export default new App().app;
