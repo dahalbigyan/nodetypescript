@@ -16,6 +16,7 @@ export class CategoryDummyData{
         return Promise.resolve(this.categories);
     };
     findOne(id: number){
+        
         let foundCategory: Category = undefined;
         this.categories.forEach(category => {
             if (category.id === id){
@@ -32,7 +33,7 @@ export class CategoryDummyData{
         const category = this.findOne(id);
         if (category){
             this.categories.splice(this.categories.indexOf(category), 1);
-        }; 
+        }
         return category;
     };
 };
