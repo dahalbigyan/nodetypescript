@@ -3,11 +3,10 @@ import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import "reflect-metadata"; // this shim is required
 import {createExpressServer} from "routing-controllers";
-import {UserController} from "./UserController";
 class App {
   constructor() {
     this.app = createExpressServer({
-      controllers: [UserController]
+      controllers: []
     });
   }; 
   public app: express.Application
