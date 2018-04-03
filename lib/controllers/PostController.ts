@@ -7,8 +7,8 @@ import {Post} from "../model/Post";
 @JsonController()
 export class PostController {
     constructor(private postDummyData: PostDummyData) {
-        
-    }; 
+
+    };
 
     @Get("/posts")
     all(): Promise<Post[]> {
@@ -18,7 +18,7 @@ export class PostController {
     @Get("/posts/:id")
     one(@Param("id") id: number): Post {
         return this.postDummyData.findOne(id);
-    }; 
+    };
 
     @HttpPost("/posts")
     post(@Body() post: Post): Post{

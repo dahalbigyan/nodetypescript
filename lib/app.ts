@@ -6,6 +6,7 @@ import "reflect-metadata"; // this shim is required
 import {createExpressServer, useContainer} from "routing-controllers";
 import {CategoryController} from "./controllers/CategoryController";
 import {PostController} from "./controllers/PostController";
+import {ScormController} from "./controllers/ScormController";
 
 // setup routing-controllers to use typedi container
 useContainer(Container);
@@ -15,11 +16,12 @@ class App {
     this.app = createExpressServer({
       controllers: [
         CategoryController,
-        PostController
+        PostController,
+        ScormController
       ]
     });
-  }; 
+  };
   public app: express.Application
-}; 
+};
 
 export default new App().app;
