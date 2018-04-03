@@ -1,7 +1,6 @@
 import {Body, JsonController, Get, Put, Req, Res} from "routing-controllers";
 import {dataHandler} from "../services/dataservice";
 
-dataHandler();
 
 @JsonController()
 export class ScormController{
@@ -17,6 +16,7 @@ export class ScormController{
   saveDataOnToTheBackend(@Req() request: any, @Res() response: any, @Body() resp: any){
     console.log("Calling from the put route.");
     console.log(resp);
+    dataHandler(resp);
     return response.send("Hello from statements put route.");
   };
 }
