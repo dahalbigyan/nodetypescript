@@ -12,9 +12,7 @@ const getUserIdAndContent = (data: any)=>{
 export const dataHandler = (respdata: any)=>{
   const {actorname, actorid} = getUserIdAndContent(respdata);
   respdata.actor.name = actorname;
-  // data.actor.name = actorname;
-  const hardCodedId='cje8z1vkv0oje01916fddhi7g';
-  console.log(actorname);
+  // const hardCodedId='cje8z1vkv0oje01916fddhi7g';
   const mutation = `mutation createScorm($content: Json!, $userId: ID!){
     createScorm(content: $content, userId: $userId){
       id
@@ -23,7 +21,7 @@ export const dataHandler = (respdata: any)=>{
   `;
   const variables = {
     content: respdata,
-    userId: hardCodedId
+    userId: actorid
   };
   request(endpoint, mutation, variables).then((data: any)=>console.log(data)).catch((error: any)=>console.error(error));
 };

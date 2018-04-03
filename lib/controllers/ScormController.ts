@@ -14,8 +14,6 @@ export class ScormController{
 
   @Put("/statements")
   saveDataOnToTheBackend(@Req() request: any, @Res() response: any, @Body() resp: any){
-    console.log("Calling from the put route.");
-    console.log(resp);
     dataHandler(resp);
     return response.send("Hello from statements put route.");
   };
