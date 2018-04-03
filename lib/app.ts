@@ -14,6 +14,7 @@ useContainer(Container);
 class App {
   constructor() {
     this.app = createExpressServer({
+      cors: true,
       controllers: [
         CategoryController,
         PostController,
