@@ -12,25 +12,25 @@ export class PostDummyData{
     ];
     findAll(){
         return Promise.resolve(this.posts);
-    }; 
+    };
     findOne(id: number) {
         let foundPost: Post = undefined;
         this.posts.forEach(post => {
             if (post.id === id){
                 foundPost = post;
-            };      
+            };
         });
         return foundPost;
-    }; 
+    };
     save(post: Post){
         this.posts.push(post);
         return post;
-    }; 
+    };
     remove(id: number){
         const post = this.findOne(id);
         if(post){
             this.posts.splice(this.posts.indexOf(post), 1);
-        }; 
+        };
         return post;
     };
 };

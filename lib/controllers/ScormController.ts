@@ -1,5 +1,5 @@
-import {Body, JsonController, Get, Put, Req, Res} from "routing-controllers";
-import {dataHandler} from "../services/dataservice";
+import {Body, JsonController, Get, Put, Req, Res, QueryParams} from "routing-controllers";
+import {statementDataHandler, activityDataHandler} from "../services/dataservice";
 
 
 @JsonController()
@@ -12,9 +12,16 @@ export class ScormController{
     return response.send("Hello from statements get route.");
   };
 
+  @Get("/activities/state")
+  saveActivityDataToTheBackend(@Req() request: any, @Res() response: any, @QueryParams() queryparams: any){
+    activityDataHandler(queryparams);
+    console.log("Calling from the activities route.");
+  }
+
   @Put("/statements")
-  saveDataOnToTheBackend(@Req() request: any, @Res() response: any, @Body() resp: any){
-    dataHandler(resp);
+  saveStatementDataToTheBackend(@Req() request: any, @Res() response: any, @Body() resp: any){
+    statementDataHandler(resp);
     return response.send("Hello from statements put route.");
   };
-}
+
+};
